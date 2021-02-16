@@ -1,6 +1,9 @@
-sum1 = 0
-max1 = 0
-min1 = 100
+atai = int(input("入力："))
 
-print()
-print(sum1)
+kotae = 0
+
+while atai>3:
+    atai -= 3
+    kotae += 1
+
+print(kotae)
