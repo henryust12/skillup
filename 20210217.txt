@@ -1,0 +1,81 @@
+
+Private Sub CommandButton2_Click()
+'2   齋藤 綾子   2   1   REGZA 58M500X [58インチ]    137383
+    Dim recCONSUMER_NO As String
+    Dim recCONSUMER_KJ As String
+    Dim recMEISAI_NO As String
+    Dim recSOHIN_NO As String
+    Dim recSOHIN_KJ As String
+    Dim recKINGAKU_NB As String
+   
+    Dim goukei As Integer
+    goukei = 0
+    
+    
+    
+    '（行）
+    Dim intTATE As Integer
+    Dim intOUTPUT_TATE As Integer
+    
+    
+    
+    '初期値
+    
+    intTATE = 2
+    intOUTPUT_TATE = 2
+    
+    
+    Do
+    
+    recCONSUMER_NO = Cells(intTATE, 1)
+    recCONSUMER_KJ = Cells(intTATE, 2)
+    recMEISAI_NO = Cells(intTATE, 3)
+    recSOHIN_NO = Cells(intTATE, 4)
+    recSOHIN_KJ = Cells(intTATE, 5)
+    recKINGAKU_NB = Cells(intTATE, 6) ' kingaku
+    
+    
+    
+    
+    
+    
+    
+   If recCONSUMER_NO = "" Then
+        Exit Do
+   End If
+   
+ 
+    If recCONSUMER_NO = Cells(intTATE + 1, 1) Then
+        Cells(intOUTPUT_TATE, 8) = ""
+        Cells(intOUTPUT_TATE, 9) = ""
+        Cells(intOUTPUT_TATE, 10) = recMEISAI_NO
+        Cells(intOUTPUT_TATE, 11) = recSOHIN_NO
+        Cells(intOUTPUT_TATE, 12) = recSOHIN_KJ
+        Cells(intOUTPUT_TATE, 13) = recKINGAKU_NB
+        goukei = goukei + recKINGAKU_NB
+    Else
+        Cells(intOUTPUT_TATE, 8) = recCONSUMER_NO
+        Cells(intOUTPUT_TATE, 9) = recCONSUMER_KJ
+        Cells(intOUTPUT_TATE, 10) = recMEISAI_NO
+        Cells(intOUTPUT_TATE, 11) = recSOHIN_NO
+        Cells(intOUTPUT_TATE, 12) = recSOHIN_KJ
+        Cells(intOUTPUT_TATE, 13) = recKINGAKU_NB
+        intOUTPUT_TATE = intOUTPUT_TATE + 1
+        Cells(intOUTPUT_TATE, 12) = "合計"
+        Cells(intOUTPUT_TATE, 13) = goukei
+        goukei = 0
+    End If
+    
+    
+    
+    
+    
+    intTATE = intTATE + 1
+    intOUTPUT_TATE = intOUTPUT_TATE + 1
+    If intTATE > 100 Then
+        Exit Do
+        
+    End If
+    
+    Loop
+End Sub
